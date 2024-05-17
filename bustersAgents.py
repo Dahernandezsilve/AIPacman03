@@ -177,25 +177,20 @@ class GreedyBustersAgent(BustersAgent):
              if livingGhosts[i+1]]
 
         # Paso 1: Calcular posición más probable de cada fantasma restante (no capturado)
-        mostLikelyGhostPositions = []
-        for beliefs in livingGhostPositionDistributions:
-            mostLikelyGhostPositions = mostLikelyGhostPositions + \
-                [beliefs.argMax()]  # Agrega la posición más probable de cada fantasma a la lista.
-            # argMax definida en util linea 273
-
-        # Paso 2: Calcular la distancia de Pacman a cada fantasma
+        # Paso 2: Calcular la distancia más corta al fantasma más cercano
+        # Pasos Mezclados: Tomar la mejor acción en base a la distancia más corta al fantasma más cercano
         minDistance = float('inf')
         closestGhostPosition = None
-        for pos in mostLikelyGhostPositions:
+        for beliefs in livingGhostPositionDistributions:
             distance = self.distancer.getDistance(
-                pacmanPosition, pos)  # Función sugerida en la descripción
+                pacmanPosition, beliefs.argMax())
             if distance < minDistance:
                 minDistance = distance
-                closestGhostPosition = pos
+                closestGhostPosition = beliefs.argMax()
 
         # TODO: Considerar calcular la distancia en el mismo paso 1
 
-        # Paso 3: Tomar la mejor acción en base a la distancia calculada
+        # Paso 3: Tomar la mejor acción en base a la distancia más corta al fantasma más cercano
         bestAction = None
         minDistance = float('inf')
         for action in legal:
