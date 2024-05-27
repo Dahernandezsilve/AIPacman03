@@ -155,7 +155,7 @@ class ExactInference(InferenceModule):
         pacmanPosition = gameState.getPacmanPosition()
 
         "*** YOUR CODE HERE ***"
-        #util.raiseNotDefined()
+        # util.raiseNotDefined()
 
         # Replace this code with a correct observation update
         # Be sure to handle the "jail" edge case where the ghost is eaten
@@ -167,7 +167,8 @@ class ExactInference(InferenceModule):
             for p in self.legalPositions:
                 trueDistance = util.manhattanDistance(p, pacmanPosition)
                 if emissionModel[trueDistance] > 0:
-                    allPossible[p] = emissionModel[trueDistance] * self.beliefs[p]
+                    allPossible[p] = emissionModel[trueDistance] * \
+                        self.beliefs[p]
 
         "*** END YOUR CODE HERE ***"
 
@@ -228,7 +229,7 @@ class ExactInference(InferenceModule):
         positions after a time update from a particular position.
         """
         "*** YOUR CODE HERE ***"
-        newBeliefs = util.Counter()
+        newBeliefs = util.Counter()  # A dict to store the new beliefs
 
         for oldPos in self.legalPositions:
             # Get the distribution over new positions for the ghost, given its previous position
