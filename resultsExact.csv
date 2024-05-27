@@ -1,0 +1,4 @@
+test_name,mapName,inference,observe,elapse,maxMoves,numGhosts,L2Tolerance,win,score,execution_time,l2_error,kl_divergence
+ExactInference01,testClassic,ExactInference,True,True,100,1,0.0001,True,175.0,0.0590000152588,6.91963482348,207.194568403
+ExactInference01,testClassic,ExactInference,True,True,100,1,0.0001,True,175.0,0.0620000362396,6.91963482348,207.194568403
+ExactInference01,testClassic,ExactInference,True,True,100,1,0.0001,True,175.0,0.0670001506805,6.91963482348,207.194568403
