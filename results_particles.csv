@@ -1,0 +1,3 @@
+test_name,mapName,inference,observe,elapse,maxMoves,numGhosts,L2Tolerance,win,score,execution_time,l2_error,kl_divergence
+customTestParticles31,empty,ParticleFilter,False,True,100,4,0.0001,False,100.0,41.5,0.0785907243658,2.83234731346
+customTestParticles32,empty,ParticleFilter,False,False,100,4,0.0001,False,100.0,1.49800014496,0.000290133333333,0.0104392931497

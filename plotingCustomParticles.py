@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import os
 
 # Load the CSV file
-file_path = 'results_exact_final.csv'
+file_path = 'results_particles_final.csv'
 df = pd.read_csv(file_path)
 
 # Display the first few rows of the dataframe
@@ -18,14 +18,14 @@ if not os.path.exists('plots'):
 
 def compare_win_rates(df, param):
     win_rates = df.groupby(param)['win'].mean()
-    print(f"\nWin rates by {param} (ExactInference):")
+    print(f"\nWin rates by {param} (ParticlesInference):")
     print(win_rates)
     win_rates.plot(kind='bar')
-    plt.title(f'Win rates by {param} (ExactInference)')
+    plt.title(f'Win rates by {param} (ParticlesInference)')
     plt.ylabel('Win Rate')
     plt.xlabel(param)
     plt.subplots_adjust(bottom=bottomVal)
-    plt.savefig(f'plots/win_rates_{param}_exact.png')
+    plt.savefig(f'plots/win_rates_{param}_particles.png')
     plt.show()
 
 # Function to compare average scores based on different parameters
@@ -33,14 +33,14 @@ def compare_win_rates(df, param):
 
 def compare_average_scores(df, param):
     average_scores = df.groupby(param)['score'].mean()
-    print(f"\nAverage scores by {param} (ExactInference):")
+    print(f"\nAverage scores by {param} (ParticlesInference):")
     print(average_scores)
     average_scores.plot(kind='bar')
-    plt.title(f'Average scores by {param} (ExactInference)')
+    plt.title(f'Average scores by {param} (ParticlesInference)')
     plt.ylabel('Average Score')
     plt.xlabel(param)
     plt.subplots_adjust(bottom=bottomVal)
-    plt.savefig(f'plots/average_scores_{param}_exact.png')
+    plt.savefig(f'plots/average_scores_{param}_particles.png')
     plt.show()
 
 # Function to compare execution times based on different parameters
@@ -48,14 +48,14 @@ def compare_average_scores(df, param):
 
 def compare_execution_times(df, param):
     execution_times = df.groupby(param)['execution_time'].mean()
-    print(f"\nExecution times by {param} (ExactInference):")
+    print(f"\nExecution times by {param} (ParticlesInference):")
     print(execution_times)
     execution_times.plot(kind='bar')
-    plt.title(f'Execution times by {param} (ExactInference)')
+    plt.title(f'Execution times by {param} (ParticlesInference)')
     plt.ylabel('Execution Time (s)')
     plt.xlabel(param)
     plt.subplots_adjust(bottom=bottomVal)
-    plt.savefig(f'plots/execution_times_{param}_exact.png')
+    plt.savefig(f'plots/execution_times_{param}_particles.png')
     plt.show()
 
 # Function to compare L2 errors based on different parameters
@@ -63,14 +63,14 @@ def compare_execution_times(df, param):
 
 def compare_l2_errors(df, param):
     l2_errors = df.groupby(param)['l2_error'].mean()
-    print(f"\nL2 errors by {param} (ExactInference):")
+    print(f"\nL2 errors by {param} (ParticlesInference):")
     print(l2_errors)
     l2_errors.plot(kind='bar')
-    plt.title(f'L2 errors by {param} (ExactInference)')
+    plt.title(f'L2 errors by {param} (ParticlesInference)')
     plt.ylabel('L2 Error')
     plt.xlabel(param)
     plt.subplots_adjust(bottom=bottomVal)
-    plt.savefig(f'plots/l2_errors_{param}_exact.png')
+    plt.savefig(f'plots/l2_errors_{param}_particles.png')
     plt.show()
 
 # Function to compare KL divergences based on different parameters
@@ -78,14 +78,14 @@ def compare_l2_errors(df, param):
 
 def compare_kl_divergences(df, param):
     kl_divergences = df.groupby(param)['kl_divergence'].mean()
-    print(f"\nKL divergences by {param} (ExactInference):")
+    print(f"\nKL divergences by {param} (ParticlesInference):")
     print(kl_divergences)
     kl_divergences.plot(kind='bar')
-    plt.title(f'KL divergences by {param} (ExactInference)')
+    plt.title(f'KL divergences by {param} (ParticlesInference)')
     plt.ylabel('KL Divergence')
     plt.xlabel(param)
     plt.subplots_adjust(bottom=bottomVal)
-    plt.savefig(f'plots/kl_divergences_{param}_exact.png')
+    plt.savefig(f'plots/kl_divergences_{param}_particles.png')
     plt.show()
 
 
