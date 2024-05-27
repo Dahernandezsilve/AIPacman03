@@ -188,9 +188,7 @@ class GreedyBustersAgent(BustersAgent):
                 minDistance = distance
                 closestGhostPosition = beliefs.argMax()
 
-        # TODO: Considerar calcular la distancia en el mismo paso 1
-
-        # Paso 3: Tomar la mejor acción en base a la distancia más corta al fantasma más cercano
+        # Paso 3: Tomar la mejor acción en base a la distancia más corta al fantasma más cercano, la mejor acción es la que acerca a Pacman al fantasma más cercano
         bestAction = None
         minDistance = float('inf')
         for action in legal:

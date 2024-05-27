@@ -4,58 +4,22 @@ import subprocess
 
 # Define the map layouts
 maps = {
-    "smallEmpty": """
+    "walls": """
 %%%%%%%%%%%%%%%%%%%%
-%P                G%
-%                 G%
-%                 G%
-%                 G%
-%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%
-% % % % %%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%
-""",
-    "smallWalls": """
-%%%%%%%%%%%%%%%%%%%%
-%P      %%%      G %
-%  %%        %%  G %
-%       %%     G  %%
-%                G %
-%%%%%%%%%%%%%%%%%%%%
+%P      G       G  %
+% %%%%% %%%%%% % % %
+%     G            %
+%          G       %
 %%%%%%%%%%%%%%%%%%%%
 % % % % %%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%
 """,
-    "bigEmpty": """
+    "empty": """
 %%%%%%%%%%%%%%%%%%%%
-%P                 %
+%P      G       G  %
 %                  %
-%                  %
-%                  %
-%                  %
-%                  %
-%                  %
-%                  %
-%                  %
-%G                G%
-%G                G%
-%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%
-% % % % %%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%
-""",
-    "bigWalls": """
-%%%%%%%%%%%%%%%%%%%%
-%P      %%%       %%
-%  %%        %%    %
-%       %%        %%
-%  %%        %%    %
-%       %%        %%
-%  %%        %%    %
-%       %%        %%
-%G %%        %%   G%
-%G     %%         G%
-%%%%%%%%%%%%%%%%%%%%
+%     G            %
+%          G       %
 %%%%%%%%%%%%%%%%%%%%
 % % % % %%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%
@@ -73,11 +37,11 @@ default_params = {
 
 # Parameter values to combine
 seeds = [188]
-numGhosts = [1, 4]
-layouts = ["smallEmpty", "smallWalls"]
+numGhosts = [1, 2, 3, 4]
+layouts = ["walls", "empty"]
 observes = ["True", "False"]
 elapses = ["True", "False"]
-inferences = ["ExactInference", "ParticleFilter"]
+inferences = ["ExactInference"]
 
 
 def clean_layout(layout):
@@ -157,7 +121,7 @@ def main():
     input("Press Enter to continue...")
 
     # Run the autograder
-    csv_path = "custom_results"
+    csv_path = "results_exact"
     run_autograder(filename_counter-1, csv_path, directory)
 
 

@@ -162,4 +162,5 @@ cython_debug/
 .vscode/
 
 # Test Files
-test_cases/custom/*
+test_cases/custom/*.test
+test_cases/custom/*.solution
