@@ -1,7 +1,6 @@
 import os
 import itertools
 import subprocess
-from pywinauto.application import Application
 
 # Define the map layouts
 maps = {
@@ -73,9 +72,9 @@ default_params = {
 
 
 # Parameter values to combine
-seeds = [188, 42, 10]
-numGhosts = [1, 2, 3, 4]
-layouts = ["smallEmpty", "smallWalls", "bigEmpty", "bigWalls"]
+seeds = [188]
+numGhosts = [1, 4]
+layouts = ["smallEmpty", "smallWalls"]
 observes = ["True", "False"]
 elapses = ["True", "False"]
 inferences = ["ExactInference", "ParticleFilter"]
@@ -126,7 +125,7 @@ def generate_test_file(directory, filename, params):
 def main():
     # Define the directory where the files will be saved
     directory = 'test_cases\\custom'
-    max_moves = "200"
+    max_moves = "100"
     filename_counter = 1
 
     # Generate combinations of all parameters
